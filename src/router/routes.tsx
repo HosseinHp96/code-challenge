@@ -23,6 +23,11 @@ const Routes: RouteObject[] = [
   },
 
   {
+    path: "/fibonacci",
+    element: <Pages.Fibonacci />,
+  },
+
+  {
     path: "*",
     element: <Navigate to="/" />,
   },
