@@ -28,6 +28,11 @@ const Routes: RouteObject[] = [
   },
 
   {
+    path: "/collatz",
+    element: <Pages.Collatz />,
+  },
+
+  {
     path: "*",
     element: <Navigate to="/" />,
   },
