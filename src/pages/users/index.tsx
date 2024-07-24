@@ -5,7 +5,7 @@ import { IUserEntity } from "../../interfaces";
 
 const cols = ["Name", "Username", "Email", "Phone", "Status"];
 
-const UserList: React.FC = () => {
+const Users: React.FC = () => {
   const { users } = useUsersStore();
   const navigate = useNavigate();
 
@@ -45,4 +45,4 @@ const UserList: React.FC = () => {
   );
 };
 
-export default UserList;
+export default Users;

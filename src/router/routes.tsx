@@ -9,7 +9,7 @@ const Routes: RouteObject[] = [
 
   {
     path: "/user-list",
-    element: <Pages.UserList />,
+    element: <Pages.Users />,
   },
 
   {
