@@ -4,12 +4,22 @@ import * as Pages from "../pages";
 const Routes: RouteObject[] = [
   {
     path: "/",
-    element: <Navigate to="/user-list" />,
+    element: <Navigate to="/users" />,
   },
 
   {
-    path: "/user-list",
+    path: "/users",
     element: <Pages.Users />,
+  },
+
+  {
+    path: "/create",
+    element: <Pages.UserForm />,
+  },
+
+  {
+    path: "/edit/:userName",
+    element: <Pages.UserForm />,
   },
 
   {
