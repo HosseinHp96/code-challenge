@@ -1,4 +1,5 @@
 import { Navigate, RouteObject } from "react-router-dom";
+import { Layout } from "../components";
 import * as Pages from "../pages";
 
 const Routes: RouteObject[] = [
@@ -8,33 +9,39 @@ const Routes: RouteObject[] = [
   },
 
   {
-    path: "/users",
-    element: <Pages.Users />,
-  },
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/users",
+        element: <Pages.Users />,
+      },
 
-  {
-    path: "/create",
-    element: <Pages.UserForm />,
-  },
+      {
+        path: "/create",
+        element: <Pages.UserForm />,
+      },
 
-  {
-    path: "/edit/:userName",
-    element: <Pages.UserForm />,
-  },
+      {
+        path: "/edit/:userName",
+        element: <Pages.UserForm />,
+      },
 
-  {
-    path: "/fibonacci",
-    element: <Pages.Fibonacci />,
-  },
+      {
+        path: "/fibonacci",
+        element: <Pages.Fibonacci />,
+      },
 
-  {
-    path: "/collatz",
-    element: <Pages.Collatz />,
-  },
+      {
+        path: "/collatz",
+        element: <Pages.Collatz />,
+      },
 
-  {
-    path: "*",
-    element: <Navigate to="/" />,
+      {
+        path: "*",
+        element: <Navigate to="/" />,
+      },
+    ],
   },
 ];
 

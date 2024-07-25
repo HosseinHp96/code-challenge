@@ -1,10 +1,9 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUsersStore } from "../../hooks/useUserStore";
 import { IUserEntity } from "../../interfaces";
 import { CustomBtn } from "../../components";
 import { Container } from "../../styles";
-import { Table } from "./styled";
 
 const cols = ["item", "Name", "Username", "Email", "Phone", "Status"];
 
