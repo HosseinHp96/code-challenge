@@ -44,4 +44,9 @@ export default class Utils {
 
     return steps;
   }
+
+  static capitalizeFirstLetter(str: string) {
+    if (str.length === 0) return str; // Handle empty strings
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 }
