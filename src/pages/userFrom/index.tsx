@@ -1,10 +1,15 @@
-import React from "react";
-import { useForm } from "react-hook-form";
+import { FieldErrors, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate, useParams } from "react-router-dom";
 import { useUsersStore } from "../../hooks/useUserStore";
 import { IUserEntity } from "../../interfaces";
 import { userSchema } from "../../constants";
+import { Container } from "../../styles";
+import InputItem from "./input";
+import SelectItem from "./select";
+import { SubmitBtn } from "../../components";
+import { Form, ItemsWrapper } from "./styled";
+import Divider from "../../styles/divider";
 
 const UserForm: React.FC = () => {
   const { addUser, updateUser, users } = useUsersStore();
@@ -37,45 +42,38 @@ const UserForm: React.FC = () => {
     navigate("/");
   };
 
+  // Helper function for safe error access
+  const getErrorMessage = (
+    errors: FieldErrors<IUserEntity>,
+    key: keyof IUserEntity
+  ) => {
+    return errors[key]?.message;
+  };
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div>
-        <label>Name</label>
-        <input {...register("name")} />
-        <p>{errors.name?.message}</p>
-      </div>
+    <Container>
+      <Form onSubmit={handleSubmit(onSubmit)}>
+        <ItemsWrapper>
+          {["name", "userName", "email", "phone"].map((item) => (
+            <InputItem
+              name={item as keyof IUserEntity}
+              register={register}
+              error={getErrorMessage(errors, item as keyof IUserEntity)}
+            />
+          ))}
+        </ItemsWrapper>
 
-      <div>
-        <label>Username</label>
-        <input {...register("userName")} />
-        <p>{errors.userName?.message}</p>
-      </div>
+        <Divider />
 
-      <div>
-        <label>Email</label>
-        <input {...register("email")} />
-        <p>{errors.email?.message}</p>
-      </div>
+        <ItemsWrapper>
+          <SelectItem register={register} />
+        </ItemsWrapper>
 
-      <div>
-        <label>Phone</label>
-        <input {...register("phone")} />
-        <p>{errors.phone?.message}</p>
-      </div>
+        <Divider />
 
-      <div>
-        <label>Status</label>
-        <select {...register("status")}>
-          <option value="">Select status</option>
-          <option value="active">Active</option>
-          <option value="not_active">Not Active</option>
-        </select>
-      </div>
-
-      <button type="submit" disabled={!isValid}>
-        Submit
-      </button>
-    </form>
+        <SubmitBtn>Submit</SubmitBtn>
+      </Form>
+    </Container>
   );
 };
 
