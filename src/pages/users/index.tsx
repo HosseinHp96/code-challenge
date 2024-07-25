@@ -4,8 +4,9 @@ import { useUsersStore } from "../../hooks/useUserStore";
 import { IUserEntity } from "../../interfaces";
 import { CustomBtn } from "../../components";
 import { Container } from "../../styles";
+import { Table } from "./styled";
 
-const cols = ["Name", "Username", "Email", "Phone", "Status"];
+const cols = ["item", "Name", "Username", "Email", "Phone", "Status"];
 
 const Users: React.FC = () => {
   const { users } = useUsersStore();
@@ -25,11 +26,9 @@ const Users: React.FC = () => {
         </thead>
 
         <tbody>
-          {users.map((user: IUserEntity) => (
-            <tr
-              key={user.userName}
-              onClick={() => navigate(`/edit/${user.userName}`)}
-            >
+          {users.map((user: IUserEntity, index) => (
+            <tr key={index} onClick={() => navigate(`/edit/${user.userName}`)}>
+              <td>{index}</td>
               <td>{user.name}</td>
               <td>{user.userName}</td>
               <td>{user.email}</td>
