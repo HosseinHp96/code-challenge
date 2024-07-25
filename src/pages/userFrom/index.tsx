@@ -7,7 +7,7 @@ import { userSchema } from "../../constants";
 import { Container } from "../../styles";
 import InputItem from "./input";
 import SelectItem from "./select";
-import { SubmitBtn } from "../../components";
+import { CustomBtn } from "../../components";
 import { Form, ItemsWrapper } from "./styled";
 import Divider from "../../styles/divider";
 
@@ -71,7 +71,9 @@ const UserForm: React.FC = () => {
 
         <Divider />
 
-        <SubmitBtn disabled={!isValid}>Submit</SubmitBtn>
+        <CustomBtn type="submit" disabled={!isValid}>
+          Submit
+        </CustomBtn>
       </Form>
     </Container>
   );

@@ -9,8 +9,8 @@ export const Button = styled.button<ButtonProps>`
   color: ${(props) => (props.disabled ? "#7d7d7d" : "#fff")};
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   border: none;
-  padding: 10px 35px;
-  font-size: 16px;
+  padding: 8px 30px;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.3s;

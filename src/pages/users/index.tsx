@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useUsersStore } from "../../hooks/useUserStore";
 import { IUserEntity } from "../../interfaces";
+import { CustomBtn } from "../../components";
+import { Container } from "../../styles";
 
 const cols = ["Name", "Username", "Email", "Phone", "Status"];
 
@@ -10,8 +12,8 @@ const Users: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div>
-      <button onClick={() => navigate("/create")}>Add New Item</button>
+    <Container>
+      <CustomBtn onClick={() => navigate("/create")}>Add New Item</CustomBtn>
 
       <table>
         <thead>
@@ -41,7 +43,7 @@ const Users: React.FC = () => {
           ))}
         </tbody>
       </table>
-    </div>
+    </Container>
   );
 };
 

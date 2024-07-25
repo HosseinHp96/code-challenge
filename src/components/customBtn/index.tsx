@@ -1,25 +1,27 @@
 import { Button } from "./styled";
 
-interface SubmitBtnProps {
+interface CustomBtnProps {
   onClick?: () => void;
   children: React.ReactNode;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
-const SubmitBtn: React.FC<SubmitBtnProps> = ({
+const CustomBtn: React.FC<CustomBtnProps> = ({
   onClick,
   children,
   disabled = false,
+  type = "button",
 }) => {
   return (
     <Button
       onClick={disabled ? undefined : onClick}
       disabled={disabled}
-      type="submit"
+      type={type}
     >
       {children}
     </Button>
   );
 };
 
-export default SubmitBtn;
+export default CustomBtn;
