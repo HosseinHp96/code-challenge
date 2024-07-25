@@ -13,3 +13,17 @@ export interface IUsersState {
   addUser: (user: IUserEntity) => void;
   updateUser: (user: IUserEntity) => void;
 }
+
+// Styles
+export interface Theme {
+  colors: {
+    primary: string;
+    secondary: string;
+    background: string;
+    text: string;
+  };
+
+  fonts: {
+    main: string;
+  };
+}
