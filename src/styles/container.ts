@@ -6,6 +6,8 @@ export const Container = styled.div`
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fcfcfc;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 768px) {
     margin: 40px;
