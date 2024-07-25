@@ -1,6 +1,6 @@
 import { FieldValues, UseFormRegister } from "react-hook-form";
 import { IUserEntity } from "../../../interfaces";
-import { Input } from "./styled";
+import { Input, Error } from "./styled";
 import Utils from "../../../utils";
 import { Label, Wrapper } from "../styled";
 
@@ -19,7 +19,7 @@ const InputItem: React.FC<IInputItem<IUserEntity>> = (params) => {
 
       <Input id={name} {...register(name)} />
 
-      <p>{error}</p>
+      <Error>{error}</Error>
     </Wrapper>
   );
 };
